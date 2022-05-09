@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Encrypt & Decrypt it</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script type="text/javascript">
+
+function encrypt(element){
+    var phrase = document.getElementById('plain').value;
+    var codifiedphrase = btoa(phrase);
+    var result;
+    if(!phrase.length<=0){
+        result =document.getElementById("encrypted-message").innerHTML = codifiedphrase;
+    }
+    else{
+        alert("Hey, you forgot to enter your message");
+        let ask = prompt("Type your message here..");
+        if(ask.length>0){
+            result = btoa(ask);
+            alert("Your messsage encrypted is: "+result );
+        }else{
+            alert("Really, Again!!");
+        }  
+    }
+}
+
+function decrypt(element){
+    var phrase = document.getElementById('encrypted').value;
+    var codifiedphrase = atob(phrase);
+    var result;
+    if(!phrase.length<=0){
+        result =document.getElementById("decrypted-message").innerHTML = codifiedphrase;
+    }
+    else{
+        alert("Hey, you forgot to enter to enter your encrypted message");
+        let ask = prompt("Type your encrypted message here..");
+        if(ask.length>0){
+            result = atob(ask);
+            alert("Your messsage decrypted is: "+result );
+        }else{
+            alert("Really, Again!!");
+        }  
+    }
+}
+        </script>
+    </head>
+    <body>
+        <img src="background.jpg" width="100%" height="100%"/>
+        <div id="container">
+            <div id="input-container">
+                <h1>Encrypt & Decrypt</h1>
+                <input type="text" id="plain" placeholder="Type your messege here..">
+                <button type="submit" onclick="encrypt(this)" id="btnEncrypt">Encrypt</button>
+                <p id="encrypted-message"></p>
+                
+                <input type="text" id="encrypted" placeholder="Type your encrypted message...">
+                <button type="submit" onclick="decrypt(this)" id="btnDecrypt">Decrypt</button>
+                <p id="decrypted-message"></p>
+
+            </div>
+        </div>
+
+        <footer id="footer">
+           <h4> Alura Latam powered by Grupo Alura</h4>
+           <br/>
+            <h3>Created by Rebecca Monroy.</h3>
+        </footer>
+    </body>
+</html>
